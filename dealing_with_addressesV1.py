@@ -50,7 +50,7 @@ def f_map():
             klass.append(x)
 
             cena_za_kvm_min.append(c['Цена за кв. метр'].min())
-            cena_za_kvm_sr.append(c['Цена за кв. метр'].mean())
+            cena_za_kvm_sr.append(round(int(c['Цена за кв. метр'].mean()), 3))
             cena_za_kvm_max.append(c['Цена за кв. метр'].max())
             #print(c['Район'][0])
         else:
