@@ -67,12 +67,13 @@ def prediction_page():
 
     with col3:
         if st.button('Предсказать цену'):
-            with open("model.pkl", "rb") as f:
-                model = pickle.load(f)
-            res = model.predict(X)
-            st.markdown(f'# Цена за кв. метр:')
-            st.markdown(f"## {'{0:,.2f}'.format(round(res[0],3))} рублей")
-            st.markdown(f'# Общая цена:')
-            st.markdown(f"## {'{0:,.2f}'.format(round(X['Площадь согласно ПД'][0] * res[0]))} рублей")
+            with st.spinner('Пару секунд...'):
+                with open("model.pkl", "rb") as f:
+                    model = pickle.load(f)
+                res = model.predict(X)
+                st.markdown(f'# Цена за кв. метр:')
+                st.markdown(f"## {'{0:,.2f}'.format(round(res[0],3))} рублей")
+                st.markdown(f'# Общая цена:')
+                st.markdown(f"## {'{0:,.2f}'.format(round(X['Площадь согласно ПД'][0] * res[0]))} рублей")
 
 
