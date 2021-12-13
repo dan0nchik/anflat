@@ -44,8 +44,8 @@ def interactive_map():
     with container:
         folium_static(m, width=1350)
 
-st.set_page_config(layout="wide")
-pages = {'Интерактивная карта': interactive_map}
-st.sidebar.title('Меню')
-choice = st.sidebar.radio("Выберите страницу:", tuple(pages.keys()))
-pages[choice]()
+# st.set_page_config(layout="wide")
+# pages = {'Интерактивная карта': interactive_map}
+# st.sidebar.title('Меню')
+# choice = st.sidebar.radio("Выберите страницу:", tuple(pages.keys()))
+# pages[choice]()
