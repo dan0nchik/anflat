@@ -2,6 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import os
 
+
 def graph_page():
     imageCarouselComponent = components.declare_component("image-carousel-component",
                                                           path="Streamlit-Image-Carousel/frontend/public")
@@ -28,5 +29,7 @@ def graph_page():
     }
     selectedImageUrl = imageCarouselComponent(imageUrls=list(graph_urls.keys()), height=100)
     avg_price = os.listdir('charts/average price')
+    delta_price = os.listdir('charts/price delta')
     if selectedImageUrl is not None:
-        st.image('charts/average price/'+str(list(filter(lambda x: graph_urls[selectedImageUrl] in x, avg_price))[0]))
+        st.image('charts/average price/' + str(list(filter(lambda x: graph_urls[selectedImageUrl] in x, avg_price))[0]))
+        st.image('charts/price delta/' + str(list(filter(lambda x: graph_urls[selectedImageUrl] in x, delta_price))[0]))
