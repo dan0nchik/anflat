@@ -19,7 +19,7 @@ def interactive_map():
                 "return marker};")
 
     dff = pd.read_excel('adressesV3.xlsx')
-    print(dff)
+    # print(dff)
     location = [55.7522, 37.61200]
     zoom_start = 10
     #55.7522, 37.6156

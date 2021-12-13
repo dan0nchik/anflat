@@ -2,4 +2,4 @@ folium==0.12.1.post1
 streamlit-folium==0.4.0
 pandas==1.2.3
 auto-sklearn==0.14.0
-xlrd
+openpyxl==3.0.9
