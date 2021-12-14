@@ -11,7 +11,7 @@ import os
 #     os.system('cd Streamlit-Image-Carousel/frontend/; npm i; npm run build; cd ../../')
 
 st.set_page_config(layout="wide")
-pages = {'Интерактивная карта': interactive_map, #'Факторы, влияющие на цену': graph_page,
+pages = {'Интерактивная карта': interactive_map, 'Факторы, влияющие на цену': graph_page,
          'Предсказание цены': prediction_page}
 st.sidebar.title('Меню')
 choice = st.sidebar.radio("Выберите страницу:", tuple(pages.keys()))
