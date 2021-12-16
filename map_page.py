@@ -4,9 +4,10 @@ from streamlit_folium import folium_static
 import pandas as pd
 from folium.plugins import FastMarkerCluster
 
+
 def interactive_map():
-    st.title("Карта")#change
-    #дальше будут идти сэты со списками девелоперов, классов и тд
+    st.title("Карта")  # change
+    # дальше будут идти сэты со списками девелоперов, классов и тд
     callback = ("function (row) {"
                 "var icon = L.AwesomeMarkers.icon({ icon: 'icon',markerColor: 'red'});"
                 "var marker = L.marker([row[0], row[1]], {icon: icon}); "
@@ -18,11 +19,11 @@ def interactive_map():
                 "marker.bindPopup(popup);"
                 "return marker};")
 
-    dff = pd.read_excel('adresses.xlsx')
+    dff = pd.read_excel('adressesV1.xlsx')
     # print(dff)
     location = [55.7522, 37.61200]
     zoom_start = 10
-    #55.7522, 37.6156
+    # 55.7522, 37.6156
     s = []
     for i in range(len(dff)):
         # df = pd.DataFrame(arr, columns=['lat', 'lon', 'link', 'string'])
@@ -34,7 +35,7 @@ def interactive_map():
         r = r + f"<br><b>Минимальная цена за кв.м:</b> {dff.iloc[i, 12]}<br>"
         r = r + f"<br><b>Средняя цена за кв.м:</b> {dff.iloc[i, 13]}<br>"
         r = r + f"<br><b>Максимальная цена за кв.м:</b> {dff.iloc[i, 14]}<br>"
-        r = r + f"<br><b>Ближайшая станция метро :</b> {dff.iloc[i, 4]} на расстоянии <b>{round(float(dff.iloc[i, 7]), 1)} метров</b><br>"
+        r = r + f"<br><b>Ближайшая станция метро :</b> {dff.iloc[i, 4]} в <b>{round(float(dff.iloc[i, 7]), 1)} км</b><br>"
         s.append(r)
 
     dff['текст'] = s
