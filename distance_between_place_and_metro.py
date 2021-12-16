@@ -37,10 +37,10 @@ def distance(latitude1: float, longitude1: float, latitude2: float, longitude2: 
 dff = pd.read_excel('adresses.xlsx')
 d = []
 for i in range(len(dff)):
-    dist = geopy.distance.distance((dff.iloc[i, 2], dff.iloc[i, 3]), (dff.iloc[i, 5], dff.iloc[i, 6])).km
+    dist = geopy.distance.distance((dff.iloc[i, 3], dff.iloc[i, 4]), (dff.iloc[i, 6], dff.iloc[i, 7])).km
     d.append(dist)
     print(dist)
 dff['Расстояние до метро'] = d
-writer = pd.ExcelWriter('adressesV2.xlsx')
+writer = pd.ExcelWriter('adresses.xlsx')
 dff.to_excel(writer)
 writer.save()
