@@ -1,6 +1,6 @@
 import streamlit as st
 from map_page import interactive_map
-from graphs import graph_page, carousel
+from graphs import graph_page
 from description import description_page
 from predict import prediction_page
 from preprocess import page
