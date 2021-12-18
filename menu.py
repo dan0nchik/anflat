@@ -1,6 +1,7 @@
 import streamlit as st
 from map_page import interactive_map
 from graphs import graph_page, carousel
+from description import description_page
 from predict import prediction_page
 from preprocess import page
 import os
@@ -12,8 +13,10 @@ st.set_page_config(layout="wide")
 #     os.system('cd Streamlit-Image-Carousel/frontend/')
 #     os.system('cd Streamlit-Image-Carousel/frontend/; npm i; npm run build; cd ../../')
 
-pages = {'Предобработка данных': page, 'Карта квартир': interactive_map,
-         # 'Факторы, влияющие на цену': carousel,
+pages = {'Предобработка данных': page,
+         'Описание датасета': description_page,
+         'Анализ': graph_page,
+         'Карта квартир': interactive_map,
          'Предсказание цены': prediction_page}
 st.sidebar.title('Меню')
 choice = st.sidebar.radio("Выберите страницу:", tuple(pages.keys()))
